@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="sw">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontakt – TanzaBoost</title>
+    <meta name="description" content="Wasiliana na TanzaBoost kupitia WhatsApp, simu, barua pepe au fomu ya mtandaoni." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">
+          <img src="logo.png" alt="TanzaBoost" />
+        </a>
+        <nav class="nav" id="mainNav">
+          <a href="services.html" data-i18n="nav.services">Huduma</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Bei</a>
+          <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="contact.html" class="btn btn-small btn-outline" aria-current="page" data-i18n="nav.contact">Mawasiliano</a>
+        </nav>
+        <div class="lang-switch">
+          <button type="button" class="chip" data-lang="en">
+            <img src="assets/images/flag-en.svg" alt="" class="flag-icon" aria-hidden="true" />
+            <span>English</span>
+          </button>
+          <button type="button" class="chip active" data-lang="sw">
+            <img src="assets/images/flag-tz.svg" alt="" class="flag-icon" aria-hidden="true" />
+            <span>Kiswahili</span>
+          </button>
+        </div>
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" data-nav-toggle>☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h1 data-i18n="contact.h1">Mawasiliano</h1>
+          <p class="muted" data-i18n="contact.tag">Rahisi – tuma WhatsApp au tumia fomu.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container profile-card">
+          <img src="my_picture.jpg" alt="Ralf - German web developer based in Tanzania" class="profile-photo" />
+          <div>
+            <h2 class="profile-title" data-i18n="contact.intro.title">Habari, mimi ni Ralf.</h2>
+            <p class="muted" data-i18n="contact.intro.body">Msanidi Mjerumani niliye hapa Tanzania. Nakusaidia kupata tovuti ya haraka, salama na msaada wa karibu kwa biashara yako.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="grid three">
+            <div class="card">
+              <h3 data-i18n="contact.whatsapp.title">WhatsApp</h3>
+              <p data-i18n="contact.whatsapp.p">Majibu ya haraka. Saa 9–18.</p>
+              <a class="btn btn-whatsapp full" href="https://wa.me/255712345678" data-i18n="contact.whatsappBtn">Fungua WhatsApp</a>
+            </div>
+            <div class="card">
+              <h3 data-i18n="contact.email.title">Barua Pepe</h3>
+              <p data-i18n="contact.email.p">Tuma taarifa muhimu (jina, sekta, domain unayotaka).</p>
+              <a class="btn btn-outline full" href="mailto:hello@example.com?subject=Website%20Anfrage" data-i18n="contact.emailBtn">Andika barua pepe</a>
+            </div>
+            <div class="card">
+              <h3 data-i18n="contact.location.title">Eneo</h3>
+              <p data-i18n="contact.location.p">Msanidi Mjerumani, anapatikana hapa. Miadi kwa maombi.</p>
+              <a class="btn btn-outline full" href="https://wa.me/255712345678" data-i18n="contact.appointmentBtn">Omba miadi</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contact.h1">Mawasiliano</h2>
+          <div class="card">
+            <form class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;" action="mailto:hello@example.com" method="post" enctype="text/plain">
+              <div style="grid-column: span 1;">
+                <label for="name" class="muted" data-i18n="contact.name">Jina</label>
+                <input id="name" name="name" type="text" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:10px;" />
+              </div>
+              <div style="grid-column: span 1;">
+                <label for="email" class="muted" data-i18n="contact.email">Barua pepe</label>
+                <input id="email" name="email" type="email" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:10px;" />
+              </div>
+              <div style="grid-column: span 2;">
+                <label for="message" class="muted" data-i18n="contact.msg">Ujumbe</label>
+                <textarea id="message" name="message" rows="5" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:10px;"></textarea>
+              </div>
+              <div style="grid-column: span 2; display:flex; gap:12px;">
+                <button type="submit" class="btn btn-primary" data-i18n="contact.send">Tuma ujumbe</button>
+                <a href="https://wa.me/255712345678" class="btn btn-ghost" data-i18n="contact.orwa">Au tuma kupitia WhatsApp</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="logo" href="index.html">
+            <img src="logo.png" alt="TanzaBoost" />
+          </a>
+          <p class="muted" data-i18n="footer.tagline">Msanidi Mjerumani · Uwepo wa hapa · Utoaji wa haraka</p>
+        </div>
+        <div class="footer-links">
+          <a href="services.html" data-i18n="nav.services">Huduma</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Bei</a>
+          <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="contact.html" aria-current="page" data-i18n="nav.contact">Mawasiliano</a>
+        </div>
+        <div class="footer-cta">
+          <a href="https://wa.me/255712345678" class="btn btn-whatsapp">WhatsApp</a>
+        </div>
+      </div>
+      <div class="container tiny muted center" data-i18n="footer.copy" data-i18n-html="true">
+        © <span id="year"></span> TanzaBoost. Alle Rechte vorbehalten.
+      </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
+
+

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="sw">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio – TanzaBoost</title>
+    <meta name="description" content="Mifano ya tovuti na marejeleo kutoka TanzaBoost." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">
+          <img src="logo.png" alt="TanzaBoost" />
+        </a>
+        <nav class="nav" id="mainNav">
+          <a href="services.html" data-i18n="nav.services">Huduma</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Bei</a>
+          <a href="portfolio.html" aria-current="page" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="contact.html" class="btn btn-small btn-outline" data-i18n="nav.contact">Mawasiliano</a>
+        </nav>
+        <div class="lang-switch">
+          <button type="button" class="chip" data-lang="en">
+            <img src="assets/images/flag-en.svg" alt="" class="flag-icon" aria-hidden="true" />
+            <span>English</span>
+          </button>
+          <button type="button" class="chip active" data-lang="sw">
+            <img src="assets/images/flag-tz.svg" alt="" class="flag-icon" aria-hidden="true" />
+            <span>Kiswahili</span>
+          </button>
+        </div>
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" data-nav-toggle>☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h1 data-i18n="index.demos">Mifano ya sekta</h1>
+          <p class="muted" data-i18n="portfolio.tag">Bofya demo ili kuona muundo. Tutarekebisha rangi, maudhui na picha kulingana na chapa yako.</p>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="grid three demo-grid">
+            <a class="demo-tile" href="#" aria-label="Barber demo">
+              <div class="demo-thumb" data-i18n="demo.friseur">Kinyozi</div>
+              <span data-i18n="demo.friseurSub">Demo ya kinyozi</span>
+            </a>
+            <a class="demo-tile" href="#" aria-label="Fashion demo">
+              <div class="demo-thumb" data-i18n="demo.fashion">Fashion</div>
+              <span data-i18n="demo.fashionSub">Demo ya fashion</span>
+            </a>
+            <a class="demo-tile" href="#" aria-label="Restaurant demo">
+              <div class="demo-thumb" data-i18n="demo.restaurant">Mgahawa</div>
+              <span data-i18n="demo.restaurantSub">Demo ya mgahawa</span>
+            </a>
+            <a class="demo-tile" href="#" aria-label="Law demo">
+              <div class="demo-thumb" data-i18n="demo.law">Sheria</div>
+              <span data-i18n="demo.lawSub">Demo ya sheria</span>
+            </a>
+            <a class="demo-tile" href="#" aria-label="Real estate demo">
+              <div class="demo-thumb" data-i18n="demo.realestate">Nyumba na mali</div>
+              <span data-i18n="demo.realestateSub">Demo ya mali isiyohamishika</span>
+            </a>
+            <a class="demo-tile" href="#" aria-label="Clinic demo">
+              <div class="demo-thumb" data-i18n="demo.clinic">Kliniki</div>
+              <span data-i18n="demo.clinicSub">Demo ya kliniki</span>
+            </a>
+          </div>
+          <p class="center">
+            <a class="btn btn-primary" href="https://wa.me/255712345678" data-i18n="portfolio.cta">Jetzt deine Demo anfragen</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="logo" href="index.html">
+            <img src="logo.png" alt="TanzaBoost" />
+          </a>
+          <p class="muted" data-i18n="footer.tagline">Msanidi Mjerumani · Uwepo wa hapa · Utoaji wa haraka</p>
+        </div>
+        <div class="footer-links">
+          <a href="services.html" data-i18n="nav.services">Huduma</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Bei</a>
+          <a href="portfolio.html" aria-current="page" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="contact.html" data-i18n="nav.contact">Mawasiliano</a>
+        </div>
+        <div class="footer-cta">
+          <a href="https://wa.me/255712345678" class="btn btn-whatsapp">WhatsApp</a>
+        </div>
+      </div>
+      <div class="container tiny muted center" data-i18n="footer.copy" data-i18n-html="true">
+        © <span id="year"></span> TanzaBoost. Alle Rechte vorbehalten.
+      </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
+
+

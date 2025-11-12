@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your_Bar – Demo Microsite</title>
+    <style>
+      :root {
+        font-family: "Inter", Arial, sans-serif;
+        color-scheme: dark;
+        --bg: #051a30;
+        --bg-alt: rgba(9, 32, 54, 0.85);
+        --bg-card: rgba(12, 42, 72, 0.9);
+        --primary: #327dff;
+        --accent: #ff2d86;
+        --muted: #93a4c4;
+        --text: #d9e6ff;
+        --highlight: rgba(50, 125, 255, 0.16);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(circle at top, rgba(50, 125, 255, 0.12), transparent 55%),
+          #051a30;
+        min-height: 100vh;
+        color: var(--text);
+      }
+      .page {
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 3.5rem;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      header .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--muted);
+        text-decoration: none;
+      }
+      header nav {
+        display: flex;
+        gap: 1rem;
+      }
+      header nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.95rem;
+        position: relative;
+        padding-bottom: 0.15rem;
+      }
+      header nav a:hover {
+        color: var(--text);
+      }
+      header nav a.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.35rem;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--primary));
+        border-radius: 999px;
+      }
+      .hero {
+        display: grid;
+        gap: 1.5rem;
+        padding: 1.8rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(155deg, rgba(12, 41, 70, 0.8), rgba(6, 20, 38, 0.92));
+        box-shadow: 0 25px 60px -35px rgba(0, 0, 0, 0.8);
+      }
+      .view-section[hidden] {
+        display: none;
+      }
+      .hero-top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .hero-info {
+        flex: 1 1 320px;
+        display: grid;
+        gap: 1.4rem;
+      }
+      .hero-info h1 {
+        margin: 0;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        font-weight: 700;
+      }
+      .hero-info p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .hero-meta {
+        display: grid;
+        gap: 0.35rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .hero-meta span strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .home-gallery {
+        width: 100%;
+        display: grid;
+        gap: 1.1rem;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      }
+      .home-gallery figure {
+        margin: 0;
+        display: grid;
+        gap: 0.75rem;
+        padding: 0.9rem 0.9rem 1.2rem;
+        border-radius: 1rem;
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.05);
+      }
+      .home-gallery img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 0.85rem;
+      }
+      .home-gallery figcaption {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.8rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 14px 24px -12px rgba(255, 45, 134, 0.65);
+      }
+      .btn-secondary {
+        background: #25d366;
+        color: #03381d;
+        box-shadow: 0 18px 26px -15px rgba(37, 211, 102, 0.6);
+      }
+      .hero-photo {
+        flex: 1 1 260px;
+        border-radius: 1rem;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(50, 125, 255, 0.1));
+        border: 1px solid rgba(147, 164, 196, 0.25);
+        min-height: 220px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(5, 26, 48, 0.5) 100%);
+      }
+      .section {
+        margin-top: 1.8rem;
+        padding: 1.6rem 1.8rem;
+        border-radius: 1.2rem;
+        background: var(--bg-card);
+        box-shadow: 0 20px 50px -35px rgba(0, 0, 0, 0.7);
+      }
+      .section h2 {
+        margin-top: 0;
+        margin-bottom: 0.9rem;
+        font-size: 1.25rem;
+        color: #fff;
+      }
+      .section p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .gallery-grid {
+        margin-top: 1.6rem;
+        display: grid;
+        gap: 1.3rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .gallery-card {
+        display: grid;
+        gap: 0.8rem;
+        padding: 1.1rem 1.1rem 1.4rem;
+        border-radius: 1rem;
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
+      }
+      .gallery-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 0.9rem;
+      }
+      .gallery-card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #fff;
+        letter-spacing: 0.05em;
+      }
+      .gallery-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+      .location-layout {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: center;
+      }
+      .location-map {
+        margin: 0;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
+        width: 100%;
+        max-width: 360px;
+        aspect-ratio: 4 / 5;
+      }
+      .location-map img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .location-info {
+        display: grid;
+        gap: 1.1rem;
+      }
+      .location-info h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #fff;
+      }
+      .location-info p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .location-meta {
+        display: grid;
+        gap: 0.9rem;
+      }
+      .location-meta div h3 {
+        margin: 0 0 0.3rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .location-meta div p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .location-cta,
+      .contact-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+      }
+      .btn-whatsapp {
+        background: #25d366;
+        color: #03381d;
+        box-shadow: 0 18px 26px -15px rgba(37, 211, 102, 0.6);
+      }
+      .btn-whatsapp:hover {
+        transform: translateY(-2px);
+      }
+      .contact-layout {
+        display: grid;
+        gap: 1.6rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: center;
+      }
+      .contact-card {
+        display: grid;
+        gap: 1rem;
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border-radius: 1rem;
+        padding: 1.4rem;
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
+      }
+      .contact-card h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #fff;
+      }
+      .contact-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .contact-card-primary {
+        min-height: 100%;
+      }
+      .contact-card-secondary {
+        min-height: 100%;
+      }
+      .contact-meta {
+        display: grid;
+        gap: 0.9rem;
+      }
+      .contact-meta div h3 {
+        margin: 0 0 0.3rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .contact-meta div p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .menu-cards {
+        margin-top: 1.5rem;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .menu-card {
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border-radius: 1rem;
+        padding: 1.1rem 1.1rem 1.4rem;
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
+        display: grid;
+        gap: 0.85rem;
+      }
+      .menu-card img {
+        width: 100%;
+        border-radius: 0.9rem;
+        height: 190px;
+        object-fit: cover;
+      }
+      .menu-card h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #fff;
+        letter-spacing: 0.05em;
+      }
+      .menu-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .tagline {
+        display: inline-flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .tagline span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .tagline span::before {
+        content: "•";
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .gallery-grid {
+        margin-top: 1.6rem;
+        display: grid;
+        gap: 1.3rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .gallery-card {
+        display: grid;
+        gap: 0.8rem;
+        padding: 1.1rem 1.1rem 1.4rem;
+        border-radius: 1rem;
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
+      }
+      .gallery-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 0.9rem;
+      }
+      .gallery-card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #fff;
+        letter-spacing: 0.05em;
+      }
+      .gallery-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+      .menu-cards {
+        margin-top: 1.5rem;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .menu-card {
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border-radius: 1rem;
+        padding: 1.1rem 1.1rem 1.4rem;
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
+        display: grid;
+        gap: 0.85rem;
+      }
+      .menu-card img {
+        width: 100%;
+        border-radius: 0.9rem;
+        height: 190px;
+        object-fit: cover;
+      }
+      .menu-card h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #fff;
+        letter-spacing: 0.05em;
+      }
+      .menu-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .reviews {
+        display: grid;
+        gap: 1rem;
+      }
+      .reviews-title {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .review {
+        background: linear-gradient(150deg, rgba(21, 52, 82, 0.65), rgba(9, 35, 62, 0.95));
+        border-radius: 1rem;
+        padding: 1.4rem;
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.05);
+      }
+      .review .stars {
+        color: #ffc947;
+        letter-spacing: 0.25rem;
+        font-size: 1rem;
+      }
+      .review p {
+        margin: 0.75rem 0 0.5rem;
+        color: var(--text);
+        font-weight: 600;
+      }
+      .review span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .cta-banner {
+        display: grid;
+        gap: 1rem;
+        align-items: center;
+        justify-items: start;
+        text-align: left;
+      }
+      .cta-banner strong {
+        font-size: 1.2rem;
+        color: #fff;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 2.5rem;
+        font-size: 0.85rem;
+      }
+      footer a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      @media (max-width: 720px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        header nav {
+          flex-wrap: wrap;
+        }
+        .hero {
+          padding: 1.5rem;
+        }
+        .hero-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+        .btn {
+          width: 100%;
+        }
+        .section {
+          padding: 1.4rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="#home" data-section="home">your_logo</a>
+        <nav>
+          <a href="#home" data-section="home">Home</a>
+          <a href="#menu" data-section="menu">Menu</a>
+          <a href="#gallery" data-section="gallery">Gallery</a>
+          <a href="#location" data-section="location">Location</a>
+          <a href="#contact" data-section="contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero view-section" id="home" data-section="home">
+        <div class="hero-top">
+          <div class="hero-info">
+            <h1>Your_Bar</h1>
+            <p>
+              Good vibes all around – safe, relaxed, unforgettable nights. The go-to spot in Dar es
+              Salaam for chilled evenings, curated drinks and magnetic ambience.
+            </p>
+            <div class="hero-meta">
+              <span><strong>Dar es Salaam</strong> · Oyster Bay</span>
+              <span>☎ 255 xxx xxx xxx · WhatsApp ready</span>
+              <span>Safe & stylish · your good-vibes escape · perfect for friends & families</span>
+            </div>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="https://wa.me/255712345678" target="_blank" rel="noopener">Reserve a table</a>
+              <a class="btn btn-secondary" href="https://wa.me/255712345678" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+          <div class="hero-photo">
+            <img src="bar.png" alt="Interior of Blue Ocean Lodge bar" />
+          </div>
+        </div>
+        <div class="tagline">
+          <span>Live DJ nights</span>
+          <span>Tropical cocktails</span>
+          <span>Signature kitchen</span>
+          <span>Safe parking</span>
+        </div>
+        <div class="home-gallery">
+          <figure>
+            <img src="gallery_1.jpg" alt="Guests enjoying a live DJ set under neon lights" />
+            <figcaption>
+              Weekend DJ sessions amp up the vibe with immersive neon lights and curated sounds.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="gallery2.jpg" alt="Outdoor lounge area with fairy lights and cocktails" />
+            <figcaption>
+              Fairy-light courtyard designed for sundowners, catch-ups, and late-night laughs.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="card.png" alt="Colourful cocktail selection served on a board" />
+            <figcaption>
+              Signature cocktail flight – four bold flavours crafted to be shared (and photographed).
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="food_1.png" alt="Chef’s sharing platter with tapas and bites" />
+            <figcaption>
+              Chef’s sharing platter mixes tapas, sliders, and dips – made for groups and good vibes.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="food_2.png" alt="Close-up of gourmet burger with fries and sauce" />
+            <figcaption>
+              Our signature charcoal burger stacks premium beef, house sauce, and brioche perfection.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="food_3.png" alt="Dessert board with cheesecake and chocolate treats" />
+            <figcaption>
+              Dessert boards keep the night sweet with mini cheesecakes, ganache bites, and fruit.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="section reviews home-reviews">
+          <h2 class="reviews-title">Customer reviews</h2>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+              Incredible vibe – fantastic drinks, bold dishes, and a team that makes every night
+              special.
+            </p>
+            <span>— Daniela K.</span>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+              Great ambiance, culinary highlights, and fair prices – the bar where every evening
+              begins and ends.
+            </p>
+            <span>— Elias M.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section view-section" id="menu" data-section="menu" hidden>
+        <h2>Feel the energy</h2>
+        <p>
+          Experience a Tanzanian bar loved for laid-back energy, vibrant ambiance, and freshly made
+          favourites at fair prices. From happy-hour classics to chef-crafted bites, every visit
+          feels like a weekend escape.
+        </p>
+        <div class="menu-cards">
+          <article class="menu-card">
+            <img src="card.png" alt="Signature cocktail board with colourful drinks" />
+            <h3>Signature Cocktail Flight</h3>
+            <p>
+              A curated board of four standout cocktails – think passion mojito, coconut espresso,
+              and bartender specials ready for every celebration.
+            </p>
+          </article>
+          <article class="menu-card">
+            <img src="food_1.png" alt="Chef’s sharing platter with tapas and bites" />
+            <h3>Chef’s Sharing Platter</h3>
+            <p>
+              Freshly grilled tapas, crispy bites, and bold dips crafted for groups. The perfect
+              companion for long talks, great beats, and the next round.
+            </p>
+          </article>
+          <article class="menu-card">
+            <img src="food_2.png" alt="Signature burger with fries and house sauce" />
+            <h3>Charcoal Smash Burger</h3>
+            <p>
+              House-ground beef, smoked cheddar, pickled chili, and brioche – served with crispy
+              fries and herb aioli.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section view-section" id="gallery" data-section="gallery" hidden>
+        <h2>Gallery</h2>
+        <p>
+          Take a look inside Your_Bar – the DJs, cocktails, and kitchen moments that keep the night
+          alive.
+        </p>
+        <div class="gallery-grid">
+          <article class="gallery-card">
+            <img src="gallery_1.jpg" alt="Guests enjoying a live DJ set under neon lights" />
+            <h3>Weekend DJ Sessions</h3>
+            <p>
+              Neon lights, headline DJs, and a packed dance floor – the soundtrack to our signature
+              nights.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="gallery2.jpg" alt="Outdoor lounge area with fairy lights and cocktails" />
+            <h3>Courtyard Lounge</h3>
+            <p>
+              Cozy corners with fairy lights, crafted cocktails, and space to catch up with the whole
+              crew.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="bar.png" alt="Bartender preparing cocktails at Your_Bar" />
+            <h3>Behind the Bar</h3>
+            <p>
+              Master bartenders shaking fresh tropical classics and bold specials right in front of
+              you.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="card.png" alt="Colourful cocktail selection served on a board" />
+            <h3>Cocktail Flight</h3>
+            <p>
+              Shareable favourites on one board – perfect for tastings, photos, and the next round
+              with friends.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="food_1.png" alt="Chef’s sharing platter with tapas and bites" />
+            <h3>Chef’s Sharing Platter</h3>
+            <p>
+              Tapas, sliders, and bold dips designed to match the cocktails and the vibe all night
+              long.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="food_2.png" alt="House burger served with fries on a wooden board" />
+            <h3>Charcoal Burger Board</h3>
+            <p>
+              Stacked burgers, hand-cut fries, and dipping trios – straight from the Your_Bar kitchen
+              pass.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section view-section" id="location" data-section="location" hidden>
+        <div class="location-layout">
+          <figure class="location-map">
+            <img src="location.png" alt="Map and exterior view of Your_Bar in Oyster Bay, Dar es Salaam" />
+          </figure>
+          <div class="location-info">
+            <div>
+              <h2>Visit us in Oyster Bay</h2>
+              <p>
+                Your_Bar is tucked away on Rose Garden Road – just steps from the Indian Ocean breeze.
+                Swing by for relaxed afternoons, sunset cocktails, and late-night DJ sessions.
+              </p>
+            </div>
+            <div class="location-meta">
+              <div>
+                <h3>Address</h3>
+                <p>
+                  Rose Garden Road, Oyster Bay<br />
+                  Dar es Salaam, Tanzania
+                </p>
+              </div>
+              <div>
+                <h3>Hours</h3>
+                <p>
+                  Tue – Thu · 4 pm – 1 am<br />
+                  Fri – Sat · 4 pm – 3 am<br />
+                  Sun · 3 pm – midnight
+                </p>
+              </div>
+              <div>
+                <h3>Reservations</h3>
+                <p>
+                  ☎ 255 712 345 678<br />
+                  WhatsApp &amp; walk-ins welcome
+                </p>
+              </div>
+            </div>
+            <div class="location-cta">
+              <a class="btn btn-primary" href="https://wa.me/255712345678" target="_blank" rel="noopener">Reserve via WhatsApp</a>
+              <a class="btn btn-secondary" href="https://maps.google.com/?q=Your_Bar+Dar+es+Salaam" target="_blank" rel="noopener">Open in Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section view-section" id="contact" data-section="contact" hidden>
+        <div class="contact-layout">
+          <div class="contact-card contact-card-primary">
+            <h2>Let’s plan your night</h2>
+            <p>
+              Got a celebration, corporate mixer, or private tasting in mind? Drop us a line and our
+              team will tailor the perfect experience – from DJ line-ups to signature cocktail
+              pairings.
+            </p>
+            <div class="contact-meta">
+              <div>
+                <h3>Direct contact</h3>
+                <p>
+                  ☎ 255 712 345 678<br />
+                  bookings@yourbar.co.tz
+                </p>
+              </div>
+              <div>
+                <h3>Response times</h3>
+                <p>
+                  Daily · 10 am – midnight<br />
+                  Faster replies via WhatsApp
+                </p>
+              </div>
+            </div>
+            <div class="location-cta">
+              <a class="btn btn-whatsapp" href="https://wa.me/255712345678" target="_blank" rel="noopener">Chat with us on WhatsApp</a>
+            </div>
+          </div>
+          <div class="contact-card contact-card-secondary">
+            <h2>Book a private event</h2>
+            <p>
+              Reserve the lounge, bar deck, or full venue for your next launch, birthday, or after
+              work hangout. Share the details – date, guests, vibe – and we’ll make it happen.
+            </p>
+            <div class="contact-cta">
+              <a class="btn btn-whatsapp" href="https://wa.me/255712345678?text=Hi%20Your_Bar%2C%20I'd%20love%20to%20book%20a%20private%20event." target="_blank" rel="noopener">Start booking on WhatsApp</a>
+            </div>
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">
+              Need a custom cocktail menu or DJ set? Include it in your message and our team will
+              confirm within the day.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Your_Bar · Mockup by TanzaBoost · All rights reserved.
+        <br />
+        <a href="https://wa.me/255712345678" target="_blank" rel="noopener">Book your website demo →</a>
+      </footer>
+    </div>
+    <script>
+      const yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      const sections = Array.from(document.querySelectorAll(".view-section"));
+      const navLinks = Array.from(document.querySelectorAll("header [data-section]"));
+      const sectionNames = new Set(sections.map((section) => section.dataset.section));
+
+      function showSection(name) {
+        const target = sectionNames.has(name) ? name : "home";
+        sections.forEach((section) => {
+          if (section.dataset.section === target) {
+            section.hidden = false;
+          } else {
+            section.hidden = true;
+          }
+        });
+        navLinks.forEach((link) => {
+          const isTarget = link.dataset.section === target;
+          if (!link.classList.contains("brand")) {
+            link.classList.toggle("active", isTarget);
+          }
+        });
+      }
+
+      const initialHash = window.location.hash.replace("#", "");
+      showSection(sectionNames.has(initialHash) ? initialHash : "home");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetSection = link.dataset.section;
+          showSection(targetSection);
+          window.history.replaceState(null, "", `#${targetSection}`);
+        });
+      });
+
+    </script>
+  </body>
+</html>
+
