@@ -150,6 +150,51 @@
         font-size: 0.9rem;
         line-height: 1.5;
       }
+      .home-dining {
+        margin-top: 1.8rem;
+        padding: 1.6rem 1.8rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(155deg, rgba(12, 41, 70, 0.85), rgba(6, 20, 38, 0.92));
+        box-shadow: 0 20px 50px -35px rgba(0, 0, 0, 0.7);
+        display: grid;
+        gap: 1.2rem;
+      }
+      .home-dining h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #fff;
+      }
+      .home-dining p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .home-dining-grid {
+        display: grid;
+        gap: 1.2rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .home-dining-grid figure {
+        margin: 0;
+        background: linear-gradient(160deg, rgba(15, 49, 82, 0.78), rgba(9, 29, 53, 0.94));
+        border-radius: 1rem;
+        padding: 1rem 1rem 1.2rem;
+        border: 1px solid rgba(50, 125, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.05);
+        display: grid;
+        gap: 0.8rem;
+      }
+      .home-dining-grid img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 0.9rem;
+      }
+      .home-dining-grid figcaption {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
       .hero-buttons {
         display: flex;
         flex-wrap: wrap;
@@ -256,17 +301,21 @@
       .location-layout {
         display: grid;
         gap: 1.5rem;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        align-items: start;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
       }
       .location-map {
+        justify-self: center;
         margin: 0;
         border-radius: 1rem;
         overflow: hidden;
         border: 1px solid rgba(50, 125, 255, 0.08);
         box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.04);
         width: 100%;
-        max-width: 360px;
+        max-width: 440px;
         aspect-ratio: 4 / 5;
       }
       .location-map img {
@@ -278,6 +327,14 @@
       .location-info {
         display: grid;
         gap: 1.1rem;
+        width: 100%;
+        max-width: 480px;
+      }
+      .location-info {
+        display: grid;
+        gap: 1.1rem;
+        width: 100%;
+        max-width: 500px;
       }
       .location-info h2 {
         margin: 0;
@@ -346,6 +403,20 @@
         color: var(--muted);
         line-height: 1.7;
       }
+      .contact-card .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(50, 125, 255, 0.15);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+        width: fit-content;
+      }
       .contact-card-primary {
         min-height: 100%;
       }
@@ -400,6 +471,201 @@
         margin: 0;
         color: var(--muted);
         font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .contact-highlights {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.8rem;
+        padding-top: 0.6rem;
+        border-top: 1px solid rgba(50, 125, 255, 0.12);
+      }
+      .contact-highlight {
+        display: grid;
+        gap: 0.2rem;
+      }
+      .contact-highlight strong {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+      }
+      .contact-highlight span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .location-extras {
+        grid-column: 1 / -1;
+        margin-top: 1.4rem;
+        display: grid;
+        gap: 1.2rem;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        width: 100%;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .location-card {
+        display: grid;
+        gap: 0.6rem;
+        padding: 1.4rem 1.6rem;
+        border-radius: 1rem;
+        background: rgba(15, 49, 82, 0.72);
+        border: 1px solid rgba(50, 125, 255, 0.12);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.05);
+      }
+      .location-card h3 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .location-card ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.6rem;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      .location-card ul li::marker {
+        color: rgba(255, 221, 143, 0.9);
+      }
+      .location-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.6;
+      }
+      .contact-timeline {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 1rem;
+      }
+      .contact-step {
+        display: grid;
+        gap: 0.35rem;
+        background: rgba(15, 49, 82, 0.72);
+        border: 1px solid rgba(50, 125, 255, 0.1);
+        border-radius: 0.9rem;
+        padding: 0.9rem 1rem;
+      }
+      .contact-step strong {
+        color: rgba(255, 255, 255, 0.85);
+        letter-spacing: 0.05em;
+        font-size: 0.92rem;
+        text-transform: uppercase;
+      }
+      .contact-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .price-table {
+        margin-top: 1.6rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(50, 125, 255, 0.12);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.05);
+      }
+      .price-table .price-header,
+      .price-table .price-row {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 1.8fr;
+        gap: 1rem;
+        padding: 1rem 1.2rem;
+      }
+      .price-table .price-header {
+        background: rgba(15, 49, 82, 0.85);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .price-table .price-row:nth-child(even) {
+        background: rgba(9, 29, 53, 0.6);
+      }
+      .price-table .price-row:nth-child(odd) {
+        background: rgba(12, 42, 72, 0.6);
+      }
+      .price-table .price-row span {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .price-table .price-row span:nth-child(2) {
+        font-weight: 700;
+        color: #ffdd8f;
+      }
+      .price-note {
+        margin-top: 1.1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .booking-demo {
+        margin-top: 1.6rem;
+        display: grid;
+        gap: 1.2rem;
+        padding: 1.5rem 1.8rem;
+        border-radius: 1.1rem;
+        background: linear-gradient(150deg, rgba(15, 49, 82, 0.82), rgba(9, 29, 53, 0.94));
+        border: 1px solid rgba(50, 125, 255, 0.12);
+        box-shadow: inset 0 0 0 1px rgba(50, 125, 255, 0.05);
+      }
+      .booking-demo h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #fff;
+      }
+      .booking-demo p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .booking-form {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      .booking-form label {
+        display: grid;
+        gap: 0.4rem;
+        font-size: 0.92rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .booking-form input,
+      .booking-form select {
+        background: rgba(6, 20, 38, 0.9);
+        border: 1px solid rgba(50, 125, 255, 0.18);
+        border-radius: 0.6rem;
+        padding: 0.65rem 0.8rem;
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+      .booking-form input:focus,
+      .booking-form select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(255, 45, 134, 0.25);
+      }
+      .booking-actions {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .btn-outline {
+        border: 1px solid rgba(50, 125, 255, 0.5);
+        background: transparent;
+        color: var(--text);
+      }
+      .btn-outline:hover {
+        background: rgba(50, 125, 255, 0.12);
+      }
+      .booking-disclaimer {
+        margin: 0;
+        color: rgba(255, 220, 143, 0.85);
+        font-size: 0.9rem;
         line-height: 1.6;
       }
       .tagline {
@@ -561,6 +827,30 @@
         .section {
           padding: 1.4rem 1.5rem;
         }
+        .home-dining {
+          padding: 1.4rem 1.5rem;
+        }
+        .price-table .price-header,
+        .price-table .price-row {
+          grid-template-columns: 1fr;
+          gap: 0.4rem;
+        }
+        .price-table .price-row span:nth-child(2) {
+          font-size: 1.05rem;
+        }
+        .booking-demo {
+          padding: 1.3rem 1.4rem;
+        }
+        .booking-actions {
+          flex-direction: column;
+        }
+        .booking-actions .btn {
+          width: 100%;
+        }
+        .location-extras {
+          grid-template-columns: 1fr;
+          max-width: 100%;
+        }
       }
     </style>
   </head>
@@ -570,7 +860,7 @@
         <a class="brand" href="#home" data-section="home">your_logo</a>
         <nav>
           <a href="#home" data-section="home">Home</a>
-          <a href="#menu" data-section="menu">Rates</a>
+          <a href="#menu" data-section="menu">Prices</a>
           <a href="#gallery" data-section="gallery">Gallery</a>
           <a href="#location" data-section="location">Location</a>
           <a href="#contact" data-section="contact">Contact</a>
@@ -608,12 +898,6 @@
         </div>
         <div class="home-gallery">
           <figure>
-            <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/hall.png" alt="Guests relaxing in the lodge’s candlelit great hall" />
-            <figcaption>
-              Evenings glow with lantern-lit lounges, fire pits, and storytelling under the stars.
-            </figcaption>
-          </figure>
-          <figure>
             <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/rezeption.png" alt="Lodge reception area with warm lighting and concierge desk" />
             <figcaption>
               Concierge hosts greet you with chilled towels, trip briefings, and a seamless check-in.
@@ -631,6 +915,34 @@
               Suites open onto private terraces for sunrise coffee and sunset relaxation.
             </figcaption>
           </figure>
+        </div>
+        <div class="home-dining">
+          <h2>Dining at Your_Lodge</h2>
+          <p>
+            From sunrise harvest bowls to multi-course tasting menus, our kitchen team celebrates
+            Tanzania’s farms, fisheries, and spice markets. Every plate is designed to complement
+            your safari day.
+          </p>
+          <div class="home-dining-grid">
+            <figure>
+              <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/food_1.png" alt="Chef presenting a seasonal tasting menu plate" />
+              <figcaption>
+                Seasonal tasting menus pair freshly harvested produce with handcrafted sauces.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/food_2.png" alt="Gourmet picnic hamper arranged for lodge guests" />
+              <figcaption>
+                Picnic hampers keep crater and waterfall excursions flavourful and refined.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/food_3.png" alt="Dessert board with artisanal sweets served at the lodge" />
+              <figcaption>
+                Dessert boards and sundowner cocktails wrap up evenings by the infinity pool.
+              </figcaption>
+            </figure>
+          </div>
         </div>
         <div class="section reviews home-reviews">
           <h2 class="reviews-title">Customer reviews</h2>
@@ -653,33 +965,84 @@
       </section>
 
       <section class="section view-section" id="menu" data-section="menu" hidden>
-        <h2>Suite Rates & Signature Packages</h2>
+        <h2>Price Overview</h2>
         <p>
-          Choose the stay that fits your journey—from romantic escapes to family adventures. Every
-          booking includes breakfast, concierge safari planning, and round-trip transfers.
+          Every stay includes à la carte breakfast, concierge itinerary planning, and return airport
+          transfers. Choose the room or package that complements your travel style.
         </p>
-        <div class="menu-cards">
-          <article class="menu-card">
-            <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/room.png" alt="Oceanview suite interior with king bed" />
-            <h3>Horizon Suite · $289/night</h3>
-            <p>
-              King bed, private veranda, freestanding tub, and nightly turn-down with fresh botanicals.
-            </p>
-          </article>
-          <article class="menu-card">
-            <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/dinning_room.png" alt="Family villa dining area set for dinner" />
-            <h3>Family Villa · $469/night</h3>
-            <p>
-              Two bedrooms, lounge, private plunge pool, and dedicated host—ideal for families or friends.
-            </p>
-          </article>
-          <article class="menu-card">
-            <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/rezeption.png" alt="Concierge desk arranging safari itineraries" />
-            <h3>Safari Signature · $189/person</h3>
-            <p>
-              Sunrise game drive, crater picnic hamper, sundowner cocktails, and evening spa treatment.
-            </p>
-          </article>
+        <div class="price-table">
+          <div class="price-header">
+            <span>Room Type</span>
+            <span>Nightly Rate</span>
+            <span>Included Highlights</span>
+          </div>
+          <div class="price-row">
+            <span>Serengeti Classic (Single)</span>
+            <span>$189</span>
+            <span>Queen bed, writing desk, veranda breakfast service</span>
+          </div>
+          <div class="price-row">
+            <span>Serengeti Classic (Double)</span>
+            <span>$229</span>
+            <span>King bed, walk-in shower, sunset turn-down, welcome cocktail</span>
+          </div>
+          <div class="price-row">
+            <span>Horizon Suite (Single)</span>
+            <span>$289</span>
+            <span>Private terrace, soaking tub, butler service on request</span>
+          </div>
+          <div class="price-row">
+            <span>Horizon Suite (Double)</span>
+            <span>$329</span>
+            <span>Panoramic lounge, in-room breakfast basket, spa voucher</span>
+          </div>
+          <div class="price-row">
+            <span>Family Villa (up to 4 guests)</span>
+            <span>$469</span>
+            <span>Two bedrooms, plunge pool, private host, dedicated safari vehicle</span>
+          </div>
+        </div>
+        <p class="price-note">
+          Need a bespoke package for honeymoon or group travel? Message us—our concierge will tailor a
+          personalised quote within the day.
+        </p>
+        <div class="booking-demo">
+          <h3>Online booking & M-Pesa checkout (optional add-on)</h3>
+          <p>
+            Upgrade your lodge website with a fully integrated reservation flow. Guests select their
+            travel dates, confirm availability, and complete payment via M-Pesa—directly on your site.
+            Perfect for instant confirmations and guests who prefer cashless stays.
+          </p>
+          <form class="booking-form">
+            <label>
+              Arrival date
+              <input type="date" name="arrival" />
+            </label>
+            <label>
+              Departure date
+              <input type="date" name="departure" />
+            </label>
+            <label>
+              Room type
+              <select name="room">
+                <option>Serengeti Classic</option>
+                <option>Horizon Suite</option>
+                <option>Family Villa</option>
+              </select>
+            </label>
+            <label>
+              Guests
+              <input type="number" name="guests" min="1" max="6" value="2" />
+            </label>
+          </form>
+          <div class="booking-actions">
+            <button type="button" class="btn btn-primary">Check availability</button>
+            <button type="button" class="btn btn-outline">Simulate M-Pesa checkout</button>
+          </div>
+          <p class="booking-disclaimer">
+            Demo only: Full online booking & M-Pesa payment require additional setup fees (API access,
+            secure server integration, transaction monitoring). Talk to us for a custom quote.
+          </p>
         </div>
       </section>
 
@@ -716,6 +1079,20 @@
             <h3>Suite Terrace</h3>
             <p>
               Suites open to private terraces with sweeping views across the crater rim.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/food_1.png" alt="Chef’s tasting menu with seasonal produce" />
+            <h3>Chef’s Tasting Menu</h3>
+            <p>
+              Seasonal courses with locally sourced ingredients and curated wine pairings.
+            </p>
+          </article>
+          <article class="gallery-card">
+            <img src="https://raw.githubusercontent.com/telge1/website_marketing/main/website/demo_sites/lodge_site/food_2.png" alt="Gourmet picnic hamper ready for safari guests" />
+            <h3>Safari Picnic Hamper</h3>
+            <p>
+              Packed baskets with artisan breads, cheeses, and fruit for crater excursions.
             </p>
           </article>
         </div>
@@ -762,12 +1139,33 @@
               <a class="btn btn-secondary" href="https://maps.google.com/?q=Your_Lodge+Karatu" target="_blank" rel="noopener">Open in Google Maps</a>
             </div>
           </div>
+          <div class="location-extras">
+            <div class="location-card">
+              <h3>Travel times</h3>
+              <ul>
+                <li>Ngorongoro crater gate – 35 minutes</li>
+                <li>Lake Manyara airstrip – 40 minutes</li>
+                <li>Arusha (ARK) airport – 2 hours</li>
+                <li>Serengeti South gate – 2.5 hours</li>
+              </ul>
+            </div>
+            <div class="location-card">
+              <h3>Nearby highlights</h3>
+              <ul>
+                <li>Coffee estate tours with tasting & roasting workshop</li>
+                <li>Maasai cultural village experiences</li>
+                <li>Hot-air balloon safaris and sunrise bush breakfasts</li>
+                <li>Karatu craft market for art and textiles</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section view-section" id="contact" data-section="contact" hidden>
         <div class="contact-layout">
           <div class="contact-card contact-card-primary">
+            <span class="badge">Concierge team</span>
             <h2>Plan your stay</h2>
             <p>
               Anniversary trip, honeymoon escape, or family safari? Message us with your travel dates
@@ -792,11 +1190,22 @@
             <div class="location-cta">
               <a class="btn btn-whatsapp" href="https://wa.me/255712345678" target="_blank" rel="noopener">Chat with us on WhatsApp</a>
             </div>
+            <div class="contact-highlights">
+              <div class="contact-highlight">
+                <strong>Multi-language support</strong>
+                <span>Deutsch · English · Kiswahili · Français</span>
+              </div>
+              <div class="contact-highlight">
+                <strong>Rapid responses</strong>
+                <span>WhatsApp replies within 30 minutes · Email replies within 2 hours</span>
+              </div>
+            </div>
           </div>
           <div class="contact-card contact-card-secondary">
+            <span class="badge">Itinerary design</span>
             <h2>Request a custom itinerary</h2>
             <p>
-              Let us know arrival airport, group size, and wish list—hot air balloons, crater hikes,
+              Let us know arrival airport, group size, and wish list—hot air balloons, safari drives,
               village visits—and our concierge will craft a personalised itinerary.
             </p>
             <div class="contact-cta">
@@ -805,6 +1214,20 @@
             <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">
               Share dietary needs or celebration details—we confirm within the day with curated options.
             </p>
+            <div class="contact-timeline">
+              <div class="contact-step">
+                <strong>1. Share details</strong>
+                <p>Tell us your travel dates, guest count, and dream experience features.</p>
+              </div>
+              <div class="contact-step">
+                <strong>2. Receive proposal</strong>
+                <p>We send a curated itinerary with room recommendations and activity highlights.</p>
+              </div>
+              <div class="contact-step">
+                <strong>3. Confirm & relax</strong>
+                <p>Approve the plan, and our concierge schedules transfers, guides, and dining.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
